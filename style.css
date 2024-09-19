@@ -1,0 +1,147 @@
+body { background-image: url("https://wallpaperaccess.com/full/2984636.png");}
+#mainBlock{
+    border-radius: 10px;
+    border: #000000 solid 5px;
+    background-color: #cecece;
+    position: absolute;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#enchants{
+    border: 1px solid #000000;
+    background-color: rgb(201, 201, 201);
+    position: relative;
+    width: 25vh;
+    height: 90vh;
+    left: 75vh;
+    top: 0px;
+    align-items: normal;
+}
+#options{
+    border: 2px solid #000000;
+    border-radius: 10px;
+    position: absolute;
+    background-color: white;
+    width: 75vh;
+    height: 5vh;
+    left: 0vh;
+    top: 94vh;
+    align-items: normal;
+}
+#exportSave {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    font-size: 100%;
+    width: 50%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#importSave {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    height: 100%;
+    font-size: 100%;
+    width: 50%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#coinsCount{
+    font-size: 50px;
+    color: white;   
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#coinsPerClick{
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;  
+}
+.Upgrade{
+    font-size:100%; 
+    font-size: 20px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+#Upgrade1{
+    border: black solid 2px;
+    font-size:100%;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+}
+#Upgrade2{
+    border: black solid 2px;
+    font-size:100%;
+    left: 0px;
+    top: 50px;
+    width: 100%;
+    height: 50px;
+}
+#Upgrade3{
+    border: black solid 2px;
+    font-size:100%;
+    left: 0px;
+    top: 100px;
+    width: 100%;
+    height: 50px;
+}
+#Upgrade4{
+    border: rgb(160, 62, 17) solid 2px;
+    font-size:100%;
+    left: 0px;
+    top: 150px;
+    width: 100%;
+    height: 50px;
+}
+#Upgrade5{
+    border: rgb(160, 62, 17) solid 2px;
+    font-size:100%;
+    left: 0px;
+    top: 200px;
+    width: 100%;
+    height: 50px;
+}
+#Upgrade6{
+    border: rgb(160, 62, 17) solid 2px;
+    font-size:90%;
+    left: 0px;
+    top: 250px;
+    width: 100%;
+    height: 50px;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    top: 0px;
+  }

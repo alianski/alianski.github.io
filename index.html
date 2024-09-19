@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steve the miner clicker</title>
+    <link rel="stylesheet" href="style.css">
+    <style></style>
+</head>
+<body>
+    <audio id="MainMusic" src="./mainMusicFromPixabay.mp3"></audio>
+    <div id="container">
+        <p id="coinsCount">N/A$</p>
+        <div id="enchants">
+            <button id="Upgrade1" class="Upgrade" draggable="false" onclick="upgrade1=1">Fortune I +1$ Per Click</button>
+            <button id="Upgrade2" class="Upgrade" onclick="upgrade2=1">Efficiency I +1$ Per Second</button>
+            <button id="Upgrade3" class="Upgrade" onclick="upgrade3=1">Explosion I +5% >> x5$</button>
+            <button id="Upgrade4" class="Upgrade" onclick="upgrade4=1">Fortune II +3$ Per Click</button>
+            <button id="Upgrade5" class="Upgrade" onclick="upgrade5=1">Efficiency II +3$ Per Second</button>
+            <button id="Upgrade6" class="Upgrade" onclick="upgrade6=1">Explosion II Explosion gives +1x$</button>
+        </div>
+        <button id="mainBlock" onclick="isclick=1"><img id="blockImage" draggable="false" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2f/Dirt.png/revision/latest?cb=20220112085643"></button>
+        <p id="coinsPerClick">N/A$/Click</p>
+        <div id="options">
+            <button id="exportSave", onclick="isExporting=1">Export save</button>
+            <button id="importSave", onclick="isImporting=1">Import save</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2127666075476860"
+     crossorigin="anonymous"></script>
+</html>
