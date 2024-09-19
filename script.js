@@ -28,15 +28,15 @@ Upgrade5Text = document.getElementById("Upgrade5");
 Upgrade6Text = document.getElementById("Upgrade6");
 mainBlock = document.getElementById("blockImage")
 
-let dirt = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2f/Dirt.png/revision/latest?cb=20220112085643"
-let grass = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c7/Grass_Block.png/revision/latest?cb=20230226144250"
-let stone = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d4/Stone.png/revision/latest?cb=20220112085705"
-let coal = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/48/Coal_Ore_JE5_BE4.png/revision/latest?cb=20210325235945"
-let iron = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/1/19/Iron_Ore_JE6_BE4.png/revision/latest?cb=20210326000111"
-let gold = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/1/18/Gold_Ore_JE7_BE4.png/revision/latest?cb=20210414170925"
-let redstone = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/cd/Redstone_Ore_JE4_BE3.png/revision/latest?cb=20210226103025"
-let lapis = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/e/ea/Lapis_Lazuli_Ore_JE4_BE4.png/revision/latest?cb=20210414171130"
-let diamonds = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/29/Diamond_Ore_JE5_BE5.png/revision/latest?cb=20210326000237"
+let dirt = "./Dirt.png"
+let grass = "./Grass_Block.png"
+let stone = "./Stone.png"
+let coal = "./CoalOre.png"
+let iron = "./Iron_ore.png"
+let gold = "./gold_ore.png"
+let redstone = "./redstone_ore.png"
+let lapis = "./Lapis_ore.png"
+let diamonds = "./Diamond_ore.png"
 
 
 let blocks = [dirt,
@@ -105,7 +105,7 @@ function mainFunc(){
     }
 
     colorButtons()
-    mainBlock.src = blocks[Math.min(upgrade1Done+upgrade2Done, blocks.length-1)]
+    mainBlock.src = blocks[Math.min(upgrade1Done+upgrade2Done+upgrade3Done+upgrade4Done+upgrade5Done+upgrade6Done, blocks.length-1)]
 }
 
 
