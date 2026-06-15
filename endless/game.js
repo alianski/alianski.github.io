@@ -566,6 +566,10 @@ function shuffle(){
 
 
 
+function goToRunMode() {
+  window.location.href = window.location.origin + "/";
+}
+
 startPassiveIncome();
 
 // ─── EVENTS ───────────────────────────────────────────────────────────────────
@@ -582,6 +586,7 @@ if(!isTouch){
 }
 document.getElementById('btn-upgrade-min-value').addEventListener('click', upgradeMinValue);
 document.getElementById('btn-shuffle').addEventListener('click', shuffle);
+document.getElementById('btn-run-mode').addEventListener('click', goToRunMode);
 if (!loadGame()) {
   reset();
 }

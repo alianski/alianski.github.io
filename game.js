@@ -441,6 +441,12 @@ function reset(){
   msg('Przeciągnij po sąsiadujących kafelkach tej samej wartości.');
 }
 
+function goToEndless() {
+  window.location.href = "endless/index.html";
+}
+
+
+
 // ─── EVENTS ───────────────────────────────────────────────────────────────────
 
 const svg = document.getElementById('board');
@@ -454,5 +460,6 @@ if(!isTouch){
   svg.addEventListener("touchstart", onTap, { passive: false });
 }
 document.getElementById('btn-reset').addEventListener('click', reset);
+document.getElementById('btn-endless-mode').addEventListener('click', goToEndless);
 reset();
 })();
