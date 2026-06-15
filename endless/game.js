@@ -28,7 +28,7 @@ const COLORS = [
 const DOT_COLORS = ['#FF4E4E','#FF9500','#FFCC00','#34C759','#00C7BE','#007AFF','#AF52DE','#FF2D55','#FF6B35','#00E5FF'];
 
 let grid = {}, selected = [], dragging = false;
-let score = 0, minVal = 1, gameOver = false;
+let score = 0, comboBuff = 0, minVal = 1, gameOver = false;
 
 
 
@@ -312,7 +312,7 @@ function startPassiveIncome() {
       gain += Math.pow(2, val - 1); // 2^(poziom-1)
     }
     gain = gain/100
-    score += gain;
+    score += gain*(1+comboBuff/100);
     document.getElementById('score').textContent = "$"+formatNumber(score)+" (+$"+formatNumber(gain)+"/s)";
     saveGame();
   }, 1000);
@@ -446,6 +446,7 @@ function merge(sx, sy){
     const total = comboTotal(comboStack);
     if(total >= 3){
       const cx = popX, cy = popY, ct = total;
+      comboBuff += total;
       setTimeout(() => showComboPopup(ct, cx, cy - 30), 180);
     }
   } else {
@@ -490,6 +491,7 @@ function saveGame() {
   const data = {
     grid: grid,
     score: score,
+    comboBuff: comboBuff,
     minVal: minVal,
   };
 
@@ -511,6 +513,7 @@ function loadGame() {
 
   // przywracamy score
   score = data.score || 0;
+  comboBuff = data.comboBuff || 0;
   minVal = data.minVal || 1;
 
   // odśwież UI
