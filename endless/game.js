@@ -313,7 +313,7 @@ function startPassiveIncome() {
     }
     gain = gain/100
     score += gain*(1+comboBuff/100);
-    document.getElementById('score').textContent = "$"+formatNumber(score)+" (+$"+formatNumber(gain)+"/s)";
+    document.getElementById('score').textContent = "$"+formatNumber(score)+" (+$"+formatNumber(gain)+"/s) (+"+comboBuff+"%)";
     saveGame();
   }, 1000);
 }
@@ -519,7 +519,7 @@ function loadGame() {
     if (checkOver()){
     msg("Na planszy nie ma dostępnych ruchów. Spróbuj zamieszać lub ulepszyć.")
   }
-  document.getElementById('score').textContent = "$"+formatNumber(score);
+  document.getElementById('score').textContent = "$"+formatNumber(score) + " (+"+comboBuff+"%)";
   document.getElementById('btn-upgrade-min-value').textContent = "Ulepsz "+minVal+" ⇒ "+(minVal+1)+" ($"+formatNumber(250*Math.pow(5, minVal-1))+")";
   document.getElementById('btn-shuffle').textContent = "Zamieszaj ($"+formatNumber(50*minVal)+")";
 
