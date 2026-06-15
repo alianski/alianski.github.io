@@ -433,8 +433,7 @@ function merge(sx, sy){
 
 
 
-  const max = maxOnBoard();
-  const offsetMax = Math.floor(max/5);
+  const offsetMax = minVal;
   const isMega  = ((n >= 8 || newVal > 7+offsetMax) || (n >= 4 && newVal > 5+offsetMax));
   const isSuper = !isMega && (n >= 4 || newVal > 5+offsetMax);
 
