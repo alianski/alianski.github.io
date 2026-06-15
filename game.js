@@ -13,7 +13,18 @@ window.addEventListener("load", () => {
   render();
 });
 
-const COLORS = [null,'#0000FF','#008000','#FF0000','#000080','#800000','#008080','#000000','#808080','#302d2d',"#631717","#687f39","#8d5b17","#6407b5","#00ff17","#00ffe5","#ff9e00","#00b0ff","#54006a","#554444","#6d4a00","#4c00d0","#00ffa5","#b10000","#a200ff"];
+const COLORS = [
+  null,
+  '#0000FF','#008000','#FF0000','#000080','#800000','#008080','#000000','#808080',
+  '#302d2d',"#631717","#687f39","#8d5b17","#6407b5","#00ff17","#00ffe5","#ff9e00",
+  "#00b0ff","#54006a","#554444","#6d4a00","#4c00d0","#00ffa5","#b10000","#a200ff",
+
+  // NOWE KOLORY ↓↓↓
+  "#ff005e","#0095ff","#9dff00","#ffea00","#ff6f00","#00ff7f","#ff00c8","#3f00ff",
+  "#00ffd0","#ff3d3d","#7f00ff","#00b36b","#ff9aff","#9a9aff","#9affc9","#ffc89a",
+  "#c8ff9a","#9affff","#ff9ab5","#b59aff"
+];
+
 const DOT_COLORS = ['#FF4E4E','#FF9500','#FFCC00','#34C759','#00C7BE','#007AFF','#AF52DE','#FF2D55','#FF6B35','#00E5FF'];
 
 let grid = {}, selected = [], dragging = false;
@@ -172,6 +183,7 @@ function maxOnBoard(){
   return Object.values(grid).reduce((m,v) => v > m ? v : m, 1);
 }
 
+
 function randVal() {
   const max = maxOnBoard()
   let minVal = Math.floor(max / 5)+1;
@@ -224,7 +236,7 @@ function render(){
       poly.setAttribute('stroke','#d0d0d0');
       poly.setAttribute('stroke-width','1');
     } else {
-      poly.setAttribute('fill', isSel ? lighten(COLORS[val]) : COLORS[val]);
+      poly.setAttribute('fill', isSel ? lighten(COLORS[val % COLORS.length]) : COLORS[val % COLORS.length]);
       poly.setAttribute('stroke', isSel ? '#ffffff' : 'rgba(0,0,0,0.15)');
       poly.setAttribute('stroke-width', isSel ? '3' : '1');
       const txt = document.createElementNS('http://www.w3.org/2000/svg','text');
@@ -250,7 +262,7 @@ function render(){
         dt.setAttribute('x', x+S*0.52); dt.setAttribute('y', y-S*0.52+5);
         dt.setAttribute('text-anchor','middle'); dt.setAttribute('font-size','12');
         dt.setAttribute('font-weight','600'); dt.setAttribute('font-family','Inter,Segoe UI,sans-serif');
-        dt.setAttribute('fill', COLORS[val]); dt.setAttribute('pointer-events','none');
+        dt.setAttribute('fill', COLORS[val % COLORS.length]); dt.setAttribute('pointer-events','none');
         dt.textContent = idx;
         g.appendChild(badge); g.appendChild(dt);
       }
