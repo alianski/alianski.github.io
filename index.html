@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexfusion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2 class="sr-only">Hexfusion - przeciągaj po kafelkach by je łączyć</h2>
+
+  <div id="gw">
+    <div id="top">
+      <div class="met">
+        <div class="ml">Wynik</div>
+        <div class="mv" id="score">0</div>
+      </div>
+      <div class="met">
+        <div class="ml">Rekord</div>
+        <div class="mv" id="best">0</div>
+      </div>
+      <div class="met">
+        <div id="rankingBox"></div>
+      </div>
+    </div>
+
+    <div id="btns">
+      <button class="act" id="btn-reset">🔄 Nowa gra</button>
+    </div>
+
+    <div id="msg">Przeciągnij po sąsiadujących kafelkach tej samej wartości.</div>
+  </div>
+
+  <!-- NOWY wrapper na planszę -->
+  <div id="board-wrapper">
+    <svg id="board"></svg>
+  </div>
+
+    <div id="popup" class="hidden">
+    <div id="popup-box">
+        <div id="popup-title">Koniec gry</div>
+        <div id="popup-score"></div>
+        <button id="popup-btn">Nowa gra</button>
+    </div>
+    </div>
+    
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+    import { getDatabase, ref, push, get, child } 
+      from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
+
+    // --- TWÓJ CONFIG ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyC6fulIRjsuIzye4YtMVpTB82rCHzou_BM",
+      authDomain: "hexfusion-60881.firebaseapp.com",
+      databaseURL: "https://hexfusion-60881-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "hexfusion-60881",
+      storageBucket: "hexfusion-60881.firebasestorage.app",
+      messagingSenderId: "635998150955",
+      appId: "1:635998150955:web:fafd3ec5d9d9efb036656e",
+      measurementId: "G-W4W1H8JHB8"
+    };
+
+    // --- INICJALIZACJA ---
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // --- ZAPIS WYNIKU ---
+    function submitScore(name, score) {
+      return push(ref(db, "scores"), {
+        name,
+        score,
+        time: Date.now()
+      });
+    }
+
+    import { onValue } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
+
+function listenRanking(callback) {
+  onValue(ref(db, "scores"), snap => {
+    if (!snap.exists()) return callback([]);
+
+    const list = Object.values(snap.val())
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3);
+
+    callback(list);
+  });
+}
+
+  function renderRanking(list) {
+    const box = document.getElementById("rankingBox");
+    box.innerHTML = list.map((e, i) =>
+      `<div>${i+1}. ${e.name} - ${e.score}</div>`
+    ).join("");
+  }
+
+    // --- UDOSTĘPNIAMY FUNKCJE GLOBALNIE ---
+    window.submitScore = submitScore;
+
+    listenRanking(list => renderRanking(list));
+
+  </script>
+
+
+  <script src="game.js"></script>
+</body>
+</html>
