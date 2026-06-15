@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexfusion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2 class="sr-only">Hexfusion - przeciągaj po kafelkach by je łączyć</h2>
+
+  <div id="gw">
+    <div id="top">
+      <div class="met">
+        <div class="ml">Kasa</div>
+        <div class="mv" id="score">0</div>
+      </div>
+    </div>
+
+    <div id="btns">
+      <button class="act" id="btn-upgrade-min-value">Ulepsz 1 ⇒ 2 ($250.00)</button>
+      <button class="act" id="btn-shuffle">Zamieszaj ($50.00)</button>
+    </div>
+
+    <div id="msg">Przeciągnij po sąsiadujących kafelkach tej samej wartości.</div>
+  </div>
+
+  <!-- NOWY wrapper na planszę -->
+  <div id="board-wrapper">
+    <svg id="board"></svg>
+  </div>
+
+    <div id="popup" class="hidden">
+    <div id="popup-box">
+        <div id="popup-title">Koniec gry</div>
+        <div id="popup-score"></div>
+        <button id="popup-btn">Nowa gra</button>
+    </div>
+    </div>
+  <script src="game.js"></script>
+</body>
+</html>
