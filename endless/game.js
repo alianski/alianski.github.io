@@ -523,6 +523,11 @@ function upgradeMinValue(){
     minVal += 1;
     document.getElementById('btn-upgrade-min-value').textContent = "Ulepsz "+minVal+" ⇒ "+(minVal+1)+" ($"+formatNumber(price*5)+")";
     document.getElementById('btn-shuffle').textContent = "Zamieszaj ($"+formatNumber(50*minVal)+")";
+    if (checkOver()){
+      msg("Na planszy nie ma dostępnych ruchów. Spróbuj zamieszać lub ulepszyć.")
+    }else{
+      msg("Przeciągnij po sąsiadujących kafelkach tej samej wartości.");
+    }
     upgradeOldTiles();
     render();
     saveGame();
