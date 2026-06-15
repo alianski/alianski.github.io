@@ -303,6 +303,7 @@ function startPassiveIncome() {
     gain = gain/100
     score += gain;
     document.getElementById('score').textContent = "$"+formatNumber(score)+" (+$"+formatNumber(gain)+"/s)";
+    saveGame();
   }, 1000);
 }
 
