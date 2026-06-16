@@ -568,6 +568,7 @@ function shuffleGrid() {
 
 function shuffle(){
   const price = 50*minVal;
+  selected = [];
   if (score >= price){
     score -= price;
 
